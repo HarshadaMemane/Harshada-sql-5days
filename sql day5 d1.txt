@@ -55,3 +55,5 @@ SQL> insert into Gym_members( id,name,age,joining_date,Expiration_date,cost,city
  select * from Gym_members where city ='pune' and age>23;
 
  select * from Gym_members where MONTHS_BETWEEN(SYSDATE,joining_date) <=3;
+
+select * from Gym_members where MONTHS_BETWEEN(joining_date,Expiration_date) =3;
