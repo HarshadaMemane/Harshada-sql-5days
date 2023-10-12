@@ -23,8 +23,8 @@ increment by 1
  insert into Gym_members( id,name,age,joining_date,Expiration_date,cost,city,height,weight)
   2  VALUES (Gym_seq.nextval,'yug',34,'13-oct-2021','14-oct-2023',5000,'Delhi',152,70);
 
- insert into Gym_members( id,name,age,joining_date,Expiration_date,cost,city,height,weight)
-  2  VALUES (Gym_seq.nextval,'yug',34,'13-oct-2021','14-oct-2023',5000,'Delhi',152,70);
+  insert into Gym_members( id,name,age,joining_date,Expiration_date,cost,city,height,weight)
+  2  VALUES (Gym_seq.nextval,'Harshada',22,'17-aug-2022','17-sep-2023',9000,'pune',150,55);
 
 
 SQL> insert into Gym_members( id,name,age,joining_date,Expiration_date,cost,city,height,weight)
