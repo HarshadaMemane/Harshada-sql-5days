@@ -56,4 +56,20 @@ SQL> insert into Gym_members( id,name,age,joining_date,Expiration_date,cost,city
 
  select * from Gym_members where MONTHS_BETWEEN(SYSDATE,joining_date) <=3;
 
-select * from Gym_members where MONTHS_BETWEEN(joining_date,Expiration_date) =3;
+ select * from Gym_members where MONTHS_BETWEEN(Expiration_date,joining_date) =3;
+
+ select * from Gym_members where MONTHS_BETWEEN(Expiration_date,joining_date) <=3;
+
+#----Geting BMI----#
+
+select name, (weight/(height*height)) AS BMI from Gym_members;
+
+#-----All by Descending order----#
+
+select *from Gym_members ORDER BY Height DESC;
+
+#------getting birth_year from age-----#
+
+ Select name ,age ,(Extract(Year from sysdate)-age) As Birth_year from Gym_members;
+
+ Select name ,age ,(Extract(Year from sysdate)-age) As Birth_year from Gym_members where city='Mumbai';
