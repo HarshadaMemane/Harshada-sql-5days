@@ -73,3 +73,54 @@ select *from Gym_members ORDER BY Height DESC;
  Select name ,age ,(Extract(Year from sysdate)-age) As Birth_year from Gym_members;
 
  Select name ,age ,(Extract(Year from sysdate)-age) As Birth_year from Gym_members where city='Mumbai';
+
+
+-------------------------------------------------DAY2--------------------------------------------------------------------------------------------
+
+create table Bookings(
+  id number(4) primary key,
+  name varchar2(20) not null,
+  room_no number(3) not null,
+  checkin_date DATE not null,
+  checkout_date DATE not null,
+  discount number(30) not null,
+  cost_per_day number(20) not null,
+   country varchar2(20) not null,
+  created_at Date default sysdate);
+
+
+create sequence Booking_seq
+start with 1
+increment by 1
+
+
+ insert into Bookings( id,name,room_no,checkin_date,checkout_date,discount,cost_per_day,country)
+    VALUES (Booking_seq.nextval,'sakshi',106,'20-jun-2022','23-jun-2022',20,200,'india');
+
+
+ insert into Bookings( id,name,room_no,checkin_date,checkout_date,discount,cost_per_day,country)
+    VALUES (Booking_seq.nextval,'john',101,'21-jun-2022','13-sep-2022',10,300,'us');
+
+ insert into Bookings( id,name,room_no,checkin_date,checkout_date,discount,cost_per_day,country)
+    VALUES (Booking_seq.nextval,'jiya',102,'01-jun-2023','11-dec-2023',30,500,'Russia');
+
+
+insert into Bookings( id,name,room_no,checkin_date,checkout_date,discount,cost_per_day,country)
+    VALUES (Booking_seq.nextval,'nil',103,'12-feb-2023','11-july-2023',20,400,'india')
+
+insert into Bookings( id,name,room_no,checkin_date,checkout_date,discount,cost_per_day,country)
+    VALUES (Booking_seq.nextval,'jenhy',107,'14-jan-2023','16-jan-2023',10,700,'uk')
+
+insert into Bookings( id,name,room_no,checkin_date,checkout_date,discount,cost_per_day,country)
+    VALUES (Booking_seq.nextval,'rihan',108,'14-jun-2022','16-oct-2023',20,800,'egypt')
+
+1.select count(*), country from Bookings group by country ;
+
+2.select country,count(*)  from Bookings group by country order by count(*) DESC fetch first 1 rows only;
+
+3.select * from Bookings where EXTRACT(MONTH from checkin_date)=6;
+
+4.select * from Bookings where (checkout_date-checkin_date)=3;
+
+5.select name, ( checkout_date-checkin_date)* cost_per_day - discount As Total_cost from Bookings;
+
