@@ -122,5 +122,5 @@ insert into Bookings( id,name,room_no,checkin_date,checkout_date,discount,cost_p
 
 4.select * from Bookings where (checkout_date-checkin_date)=3;
 
-5.select name, ( checkout_date-checkin_date)* cost_per_day - discount As Total_cost from Bookings;
+5.select name, ( checkout_date-checkin_date)* cost_per_day - ((checkout_date-checkin_date)*discount/100) As Total_cost from Bookings;
 
